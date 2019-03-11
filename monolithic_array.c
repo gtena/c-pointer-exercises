@@ -3,12 +3,23 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 
-void run_monolithic_array() {
+struct mono {
+    int a;
+    int b;
+};
+
+struct mono *mono_array = NULL;
+
+void run_monolithic_array(struct mono **mono_array) {
     printf("Running monolithic array\n");
+    *mono_array = malloc(10 * sizeof **mono_array);
+    (*mono_array)[0].a = 42;
+    (*mono_array)[0].b = 75;
+    printf("Array values are: %d, %d\n", mono_array[0]->a, mono_array[0]->b);
 
-    // YOUR CODE HERE
-
+    //free(mono_array);
 }
 
 /*#### Monolithic array

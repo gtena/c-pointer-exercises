@@ -16,10 +16,11 @@ struct s array[2] =  {
 void run_global_array() {
     printf("Running global array\n");
     for (int i = 0; i < 2; i++) {
+        //struct s s1 = {12,24};
+        //struct s s2 = {48, 96};
         array[i].a = i;
         array[i].b = i + 1;
         printf("array values: %d %d\n", array[i].a, array[i].b);
-
     }
 }
 

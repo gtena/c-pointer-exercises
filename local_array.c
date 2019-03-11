@@ -6,18 +6,19 @@
 
 struct s {
     int a;
-    int b;
+    char b;
 };
 
 void run_local_array() {
     printf("Running local array\n");
-
-    struct s int_array[2] = {
-            {},
-            {}
-
+    struct s s_array[2] = {
     };
 
+    for (int i = 0; i < 2; i++) {
+        s_array[i].a = i;
+        s_array[i].b = 'a';
+        printf("Array values are: %d %c\n", s_array[i].a, s_array[i].b);
+    }
 }
 
 /*
