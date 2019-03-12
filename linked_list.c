@@ -3,11 +3,30 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
+
+struct LinkedList{
+    int data;
+    struct LinkedList *next;
+};
+
+struct LinkedList* head = NULL;
+struct LinkedList* second = NULL;
+struct LinkedList* tail = NULL;
+
 
 void run_linked_list() {
     printf("Running linked list\n");
 
-    // YOUR CODE HERE
+    head->data = 1;
+    head->next = second;
+    second->data = 2;
+    second->next = tail;
+    tail->data = 3;
+    tail->next = NULL;
+
+
+
 
 }
 

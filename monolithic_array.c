@@ -12,13 +12,16 @@ struct mono {
 
 struct mono *mono_array = NULL;
 
-void run_monolithic_array(struct mono **mono_array) {
+void run_monolithic_array() {
     printf("Running monolithic array\n");
-    *mono_array = malloc(10 * sizeof(struct mono));
+    mono_array = malloc(10 * sizeof(struct mono));
+    if (mono_array == NULL) {
+        printf("Malloc failed!\n");
+    }
     for (int i = 0; i < 2; i++) {
-    (*mono_array)[0].a = 42;
-    (*mono_array)[0].b = 75;
-    printf("array values are: %d, %d\n", mono_array[0]->a, mono_array[0]->b);
+    (mono_array)[0].a = 42;
+    (mono_array)[0].b = 75;
+    printf("array values are: %d, %d\n", mono_array[0].a, mono_array[0].b);
     }
 
     free(mono_array);
