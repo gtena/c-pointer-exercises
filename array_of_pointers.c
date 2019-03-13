@@ -27,7 +27,7 @@ void run_array_of_pointers() {
         p_array[i]->a = i + 1;
         printf("%3d ", (*p)[i]->a);
     }
-
+    printf("\n");
     /*for (int i = 0; i < 10; i++) {
 
         printf("%3d ", (*p)[i]->a);

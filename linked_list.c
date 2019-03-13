@@ -11,22 +11,66 @@ struct LinkedList{
 };
 
 struct LinkedList* head = NULL;
-struct LinkedList* second = NULL;
+//struct LinkedList* current = NULL;
 struct LinkedList* tail = NULL;
 
 
+
+/*head->data = 1;
+head->next = second;
+second->data = 2;
+second->next = tail;
+tail->data = 3;
+tail->next = NULL;
+*/
+
+void list_insert(int data) {
+
+    //allocate new node, initialize to head
+    if (head == NULL) {
+
+        head = (struct LinkedList *) malloc(sizeof(struct LinkedList));
+        head->next = 0;
+        head->data = data;
+        tail = head;
+    }
+
+    //append node to end of list if larger than tail
+    else {
+        if (data >= tail->data) {
+            tail->next = (struct LinkedList *) malloc(sizeof(struct LinkedList));
+            tail = tail->next;
+            tail->data = data;
+            tail->next = NULL;
+        }
+        //add to front of list if data less than head
+        else if(data < head->data) {
+            struct LinkedList *temp = head;
+            head = (struct LinkedList*) malloc(sizeof(struct LinkedList));
+            head->data = data;
+            head->next = temp;
+        }
+    }
+
+}
+
+void printList(struct LinkedList *head)
+{
+    while (head != NULL)
+    {
+        printf(" %d ", head->data);
+        head = head->next;
+    }
+}
+
 void run_linked_list() {
+
     printf("Running linked list\n");
-
-    head->data = 1;
-    head->next = second;
-    second->data = 2;
-    second->next = tail;
-    tail->data = 3;
-    tail->next = NULL;
-
-
-
+    list_insert(2);
+    list_insert(4);
+    list_insert(8);
+    list_insert(1);
+    printList(head);
 
 }
 
